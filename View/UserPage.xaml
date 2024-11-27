@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Module08.View.UserPage"
+             Title="UserPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Data Access using API"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Button Text="Load Users" Command="{Binding LoadUserCommand}"/>
+        <ListView ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Text=" | "/>
+                            <Label Text="{Binding Gender}"/>
+                            <Label Text=" | "/>
+                            <Label Text="{Binding ContactNo}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label Text="Add User"
+               FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Padding="20"/>
+        <Label Text="Name"/>
+        <Entry Placeholder="Enter Name" Text="{Binding NameInput}"/>
+
+        <Label Text="Gender"/>
+        <Entry Placeholder="Enter Gender" Text="{Binding GenderInput}"/>
+
+        <Label Text="Contact No"/>
+        <Entry Placeholder="Enter Contact No" Text="{Binding ContactNoInput}"/>
+
+        <Button Text="Add User" Command="{Binding AddUserCommand}"/>
+        
+        <Button Text="Delete User" Command="{Binding DeleteUserCommand}"/>
+
+        <Button Text="Update User" Command="{Binding UpdateUserCommand}"/>
+
+    </VerticalStackLayout>
+</ContentPage>
